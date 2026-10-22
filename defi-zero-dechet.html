@@ -107,6 +107,7 @@ footer img{height:34px;width:auto}
 .field input,.field select{font:400 18px var(--body);color:var(--ink);border:2px solid var(--ink);border-radius:10px;padding:10px 12px;background:var(--brand-ll);width:100%}
 .field input:focus{outline:3px solid var(--dech);outline-offset:1px}
 .field.wide{grid-column:1/-1}
+.field select{text-overflow:ellipsis;padding-right:32px}
 .tagline{display:flex;flex-wrap:wrap;gap:6px}
 .tagline span{background:var(--brand-l);border:2px solid var(--ink);border-radius:999px;padding:3px 12px;font:700 14px var(--body)}
 .err{color:var(--ko);font-weight:700}
@@ -287,7 +288,7 @@ function vPartie(){return `<div class="eyebrow">Avant de commencer · identifier
   <div class="field"><label for="f-anim">Animateur·rice</label><input id="f-anim" value="${esc(SESSION.animateur)}" placeholder="Prénom"></div>
   <div class="field"><label for="f-t0">Équipe 1</label><input id="f-t0" value="${esc(TEAMS[0].name)}"></div>
   <div class="field"><label for="f-t1">Équipe 2</label><input id="f-t1" value="${esc(TEAMS[1].name)}"></div>
-  <div class="field"><label for="f-terrain">Parcours terrain</label><select id="f-terrain"><option value="1" ${SESSION.terrain?"selected":""}>Oui — visite des installations</option><option value="0" ${SESSION.terrain?"":"selected"}>Non — en salle uniquement</option></select></div>
+  <div class="field"><label for="f-terrain">Parcours terrain</label><select id="f-terrain"><option value="1" ${SESSION.terrain?"selected":""}>Oui, avec visite</option><option value="0" ${SESSION.terrain?"":"selected"}>Non, en salle</option></select></div>
  </div>
  <div class="row"><button class="btn" onclick="startPartie()">Lancer la partie →</button><span class="err" id="f-err" role="alert"></span></div>`}
 function readPartie(){SESSION.public=$("#f-public").value.trim();SESSION.lieu=$("#f-lieu").value.trim();SESSION.date=$("#f-date").value;SESSION.animateur=$("#f-anim").value.trim();SESSION.terrain=$("#f-terrain").value==="1";
